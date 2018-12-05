@@ -43,5 +43,9 @@
     <string name="reset">Сброс</string>
     <string name="start">Старт</string>
     <string name="stop">Стоп</string>
+    <string name="time30">30 секунд</string>
+    <string name="time45">45 секунд</string>
+    <string name="time90">90 секунд</string>
+    <string name="change_city">Время асаны</string>
 
 </resources>

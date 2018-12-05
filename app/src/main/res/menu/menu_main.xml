@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.saimon.myapplication.MainActivity">
+
+    <item
+        android:id="@+id/time_30"
+        android:orderInCategory="0"
+        android:checked="true"
+        android:title="@string/time30"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/time_45"
+        android:orderInCategory="1"
+        android:checked="true"
+        android:title="@string/time45"
+        app:showAsAction="never"
+        tools:ignore="DuplicateIds" />
+    <item
+        android:id="@+id/time_90"
+        android:orderInCategory="2"
+        android:checked="true"
+        android:title="@string/time90"
+        app:showAsAction="never" />
+</menu>

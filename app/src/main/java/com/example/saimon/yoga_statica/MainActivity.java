@@ -4,6 +4,8 @@ import android.content.res.Configuration;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 
@@ -72,6 +74,26 @@ public class MainActivity extends AppCompatActivity {
         if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             //... do something
         } else {
+
+        }
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+           // case R.id.menu_main.time30:
+
+              //  return true;
+          //  case R.id.menu.time_45:
+
+              //  return true;
+          //  case R.id.menu.time_90:
+
+              //  return true;
+                default:
+                    return super.onOptionsItemSelected(item);
 
         }
     }
