@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">Statics_Yoga</string>
+
     <string name="riveting">Лягте на спину, ноги и руки слегка приподнимите (А),
         это будет вашим исходным положением. Следующим движением будет подъем
         ног и торса вверх, при этом постарайтесь коснуться руками своих ног
@@ -32,6 +33,20 @@
         получится, а затем медленно вернитесь в исходное положение (А).
         \nСделайте столько повторов, сколько сможете.</string>
 
+
+    <string name="rivetingList">Подъем ног и торса вверх, коснуться руками своих ног</string>
+    <string name="kick_backList">Встаньте в упор лежа и вытолкнитесь, ваши ноги и ягодицы вверх
+        </string>
+    <string name="squatList">Станьте прямо, ноги на ширине плеч, руки за головой</string>
+    <string name="twistsList">Сядьте, спину чуть отклоните назад, руки держите перед собой,
+        а ноги оторвите от </string>
+    <string name="jumpingList">Поставьте перед собой табурет, на расстоянии 30
+        - 40 сантиметров</string>
+    <string name="boatList">Лягте на живот, локтями упритесь в пол,
+        а мяч зажмите между ног.</string>
+    <string name="twistingList">Встаньте в упор лежа, при этом ноги закиньте
+        на шведский мяч, так.</string>
+
     <string name="riveting_name">Скрепка</string>
     <string name="kick_back_name">Кик бэк</string>
     <string name="squat_name">Приседания с прыжком</string>
@@ -47,5 +62,6 @@
     <string name="time45">45 секунд</string>
     <string name="time90">90 секунд</string>
     <string name="change_city">Время асаны</string>
-
+    <string name="time_training">Время тренировки</string>
+    <string name="time_yoga">Время асаны</string>
 </resources>

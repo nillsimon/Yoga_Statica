@@ -24,7 +24,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
     private static final String KEY_RUNNING = "running";
 
     private Button resetBtn, startBtn, stopBtn;
-    private TextView timerTV;
+    private TextView timerTV,timerBack;
     private int seconds = 0;
     private boolean running = true;
 
@@ -73,6 +73,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
         startBtn = view.findViewById(R.id.startBtn);
         stopBtn = view.findViewById(R.id.stopBtn);
         timerTV = view.findViewById(R.id.timerTV);
+        timerBack = view.findViewById(R.id.timerBack);
     }
 
     private void setOnClickListeners() {
@@ -115,6 +116,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
 
                 String time = String.format(Locale.US, "%d:%02d:%02d", hours, minutes, secs);
                 timerTV.setText(time);
+              //  timerBack.setText(time);
                 if(running) {
                     seconds++;
                 }
@@ -122,5 +124,24 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener{
                 handler.postDelayed(this, DELAY);
             }
         });
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                int hours = seconds / SECONDS_IN_HOUR;
+                int minutes = (seconds % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+                int secs = seconds % 60;
+
+                String time = String.format(Locale.US, "%d:%02d:%02d", hours, minutes, secs);
+               // timerTV.setText(time);
+                  timerBack.setText(time);
+                if(running) {
+                    seconds++;
+                }
+
+                handler.postDelayed(this, DELAY);
+            }
+        });
+
     }
 }
