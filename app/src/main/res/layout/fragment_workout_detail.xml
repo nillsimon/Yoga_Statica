@@ -13,15 +13,22 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textDescription"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="200dp"
+        android:paddingBottom="0dp">
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageWorkout"
         android:layout_width="310dp"
-        android:layout_height="150dp" />
+        android:layout_height="180dp" />
 
     <FrameLayout
         android:id="@+id/stopwatchContainer"

@@ -1,16 +1,32 @@
 package com.example.saimon.yoga_statica;
 
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int SECONDS_IN_HOUR = 3600;
+    private static final int SECONDS_IN_MINUTE = 60;
+    private static final int DELAY = 1000;
+    private int seconds = 0;
+    TextView mTextField;
+    TextView timer_Assana;
+    TextView timer_Training;
+    public int time2 = 15000;
     FrameLayout container;
+    private boolean running = true;
+    private String myString = "Hello";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +39,22 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         initListFragment();
         showDetailsFragmentAtStart();
+        getMyData();
+        //runTimer();
+
+    }
+
+    private void getMyData() {
     }
 
     private void initViews() {
         container = findViewById(R.id.fragmentContainer);
+        timer_Assana = findViewById(R.id.timerAssan);
+        timer_Training = findViewById(R.id.timerTraining);
     }
 
     private void showDetailsFragmentAtStart() {
-        if(container.getTag().equals("tablet_display")) {
+        if (container.getTag().equals("tablet_display")) {
             initDetailFragment(0);
         }
     }
@@ -52,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void initListFragment() {
-        if(container.getTag().equals("usual_display")) {
+        if (container.getTag().equals("usual_display")) {
             WorkoutListFragment listFragment = new WorkoutListFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainer, listFragment);
@@ -63,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportFragmentManager().popBackStack();
         }
     }
@@ -71,31 +95,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             //... do something
         } else {
 
         }
     }
-    public boolean onCreateOptionsMenu(Menu menu){
+
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-           // case R.id.menu_main.time30:
 
-              //  return true;
-          //  case R.id.menu.time_45:
-
-              //  return true;
-          //  case R.id.menu.time_90:
-
-              //  return true;
-                default:
-                    return super.onOptionsItemSelected(item);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.time_30:
+                time2 = 30000;
+                return true;
+            case R.id.time_45:
+                time2 = 45000;
+                return true;
+            case R.id.time_90:
+                time2 = 90000;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
         }
     }
 }
-

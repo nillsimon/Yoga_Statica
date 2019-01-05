@@ -122,7 +122,7 @@ public class WorkoutListFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return ListTitle.listArrTitle.length;
+            return Workout.workouts.length;
         }
     }
 

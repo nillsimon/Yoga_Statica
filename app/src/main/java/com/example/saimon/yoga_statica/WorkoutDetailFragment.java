@@ -24,7 +24,7 @@ public class WorkoutDetailFragment extends Fragment {
     // Переменная, по которой мы будем брать соответствующее упражнение в классе Workout
     private int workoutId;
     TextView title;
-    TextView description;
+    TextView description, textprofit;
     ImageView imageResourceId;
     // Основной метод для создания Фрагмента (по аналогии с onCreate  у Activity)
     @Override

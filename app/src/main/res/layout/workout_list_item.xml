@@ -1,35 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/category_item"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageListWorkout"
-        android:layout_width="60dp"
-        android:layout_height="50dp" />
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_alignTop="@+id/checkBox"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="284dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/imageListWorkout"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-38dp"
+        android:layout_marginRight="-38dp"
+        android:layout_toStartOf="@+id/checkBox"
+        android:layout_toLeftOf="@+id/checkBox"
+        android:layout_toEndOf="@+id/imageListWorkout"
+        android:layout_toRightOf="@+id/imageListWorkout"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/listTextTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/listTextTitle"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/listTextDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/listTextDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
-   </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="40dp"
+        android:layout_height="54dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_weight="1" />
+
+</RelativeLayout>
