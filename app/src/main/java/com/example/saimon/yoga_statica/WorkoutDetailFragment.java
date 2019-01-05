@@ -26,6 +26,9 @@ public class WorkoutDetailFragment extends Fragment {
     TextView title;
     TextView description, textprofit;
     ImageView imageResourceId;
+
+
+
     // Основной метод для создания Фрагмента (по аналогии с onCreate  у Activity)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
