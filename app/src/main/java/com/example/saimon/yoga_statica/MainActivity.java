@@ -1,6 +1,5 @@
 package com.example.saimon.yoga_statica;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -81,13 +80,9 @@ public class MainActivity extends AppCompatActivity {
     void initListFragment() {
         if (container.getTag().equals("usual_display")) {
             WorkoutListFragment listFragment = new WorkoutListFragment();
-            Intent intent = new Intent(MainActivity.this, WorkoutListFragment.class);
-            intent.putExtra(String.valueOf(time2), time2);
-            MainActivity.this.startActivity(intent);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainer, listFragment);
-
-             transaction.commit();
+            transaction.commit();
         }
     }
 
