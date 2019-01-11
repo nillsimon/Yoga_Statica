@@ -1,13 +1,15 @@
 package com.example.saimon.yoga_statica;
 
 import android.content.res.Configuration;
+import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -21,13 +23,15 @@ public class MainActivity extends AppCompatActivity {
     private static final int DELAY = 1000;
     private int seconds = 0;
     TextView mTextField;
-    TextView timer_Assana;
-    TextView timer_Training;
+    TextView timer_Training, timer_Assana;
 
     public int time2 = 15000;
     FrameLayout container;
     private boolean running = true;
     private String myString = "Hello";
+    boolean isStarted = false;
+    boolean isCanseled = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,51 +39,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentContainer, WorkoutDetailFragment.newInstance())
+                    .replace(R.id.fragmentContainer, AsanaFragment.newInstance())
                     .commitNow();
         }
         initViews();
         initListFragment();
-        showDetailsFragmentAtStart();
-        getMyData();
-        //runTimer();
-
+        showAsFragmentAtStart();
     }
 
-    private void getMyData() {
-    }
-
-    private void initViews() {
+    public void initViews() {
         container = findViewById(R.id.fragmentContainer);
-        timer_Assana = findViewById(R.id.timerAssan);
-        timer_Training = findViewById(R.id.timerTraining);
+
+
+
     }
 
-    private void showDetailsFragmentAtStart() {
+    private void showAsFragmentAtStart() {
         if (container.getTag().equals("tablet_display")) {
             initDetailFragment(0);
+
         }
     }
 
     void initDetailFragment(int position) {
-        // Инстантиируем Fragment
-        WorkoutDetailFragment detailFragment = new WorkoutDetailFragment();
-        // Устанавливаем то упражнение, которое хотим показать
+        AsanaFragment detailFragment = new AsanaFragment();
         detailFragment.setWorkout(position);
-        // Начинаем транзакцию Fragment через Support FragmentManager
-        // (класс, который управляет созданием и хранением Fragment в системе)
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        // Указываем, какой фрагмент и в какой контейнер хотим поместить
         transaction.replace(R.id.fragmentContainer, detailFragment);
-        // Добавляем фрагмент в стек для возможности возврата
         transaction.addToBackStack(null);
-        // Запускаем транзакцию (остальное берет на себя система)
         transaction.commit();
+
     }
 
     void initListFragment() {
         if (container.getTag().equals("usual_display")) {
-            WorkoutListFragment listFragment = new WorkoutListFragment();
+            ListFragment listFragment = new ListFragment();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainer, listFragment);
             transaction.commit();
@@ -98,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            //... do something
         } else {
 
         }
@@ -120,9 +113,66 @@ public class MainActivity extends AppCompatActivity {
             case R.id.time_90:
                 time2 = 90000;
                 return true;
+                case R.id.home:
+                    NavUtils.navigateUpFromSameTask(this);
+                    return true;
             default:
                 return super.onOptionsItemSelected(item);
 
         }
     }
+
+    public void onClickStart(View v) {
+
+        megaTimer();
+        startTimer();
+        reverseTimer();
+        timer_Assana = findViewById(R.id.timerAsana);
+        timer_Training = findViewById(R.id.timerTraining);
+
+    }
+        CountDownTimer cTimer = null;
+    void startTimer() {
+        cTimer = new CountDownTimer(time2, 1000) {
+            public void onTick(long millisUntilFinished) {
+            }
+            public void onFinish() {
+            }
+        };
+        cTimer.start();
+    }
+    public void reverseTimer() {
+        new CountDownTimer(time2, 1000) {
+            public void onTick(long millisUntilFinished) {
+                int seconds = (int) (millisUntilFinished / 1000);
+                int minutes = seconds / 60;
+                seconds = seconds % 60;
+                timer_Assana.setText("" + String.format("%02d", minutes)
+                        + ":" + String.format("%02d", seconds));
+            }
+            public void onFinish() {
+                cTimer.cancel();
+                timer_Assana.setText("Out");
+            }
+        }.start();
+    }
+    private void megaTimer() {
+        if(isStarted == false){
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                int hours = seconds / SECONDS_IN_HOUR;
+                int minutes = (seconds % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+                int secs = seconds % 60;
+                String time = String.format(Locale.US, "%d:%02d:%02d", hours, minutes, secs);
+                timer_Training.setText(time);
+                if(running) {
+                    seconds++;
+                    isStarted = true;
+                }
+                handler.postDelayed(this, DELAY);
+            }
+        });
+    }}
 }

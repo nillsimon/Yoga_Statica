@@ -331,4 +331,5 @@
     <string name="change_city">Время асаны</string>
     <string name="time_training">Время тренировки</string>
     <string name="time_yoga">Время асаны</string>
+    <string name="action_settings">Настройки</string>
 </resources>
