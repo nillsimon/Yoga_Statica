@@ -5,6 +5,7 @@ class Workout {
     private String description;
     private int imageResourceId;
 
+    
     static final Workout[] workouts = {
             new Workout(SlimApp.context.getString(R.string.trikonasana_name),
                     SlimApp.context.getString(R.string.trikonasanaList),
