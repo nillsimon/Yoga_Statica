@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica;
+package com.example.saimon.yoga_statica.presenter;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

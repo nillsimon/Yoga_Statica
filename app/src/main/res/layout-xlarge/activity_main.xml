@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/list_frag"
-        class="com.example.saimon.yoga_statica.ListFragment"
+        class="com.example.saimon.yoga_statica.view.ListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

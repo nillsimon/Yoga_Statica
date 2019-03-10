@@ -1,12 +1,15 @@
-package com.example.saimon.yoga_statica;
-class Workout {
+package com.example.saimon.yoga_statica.presenter;
+
+import com.example.saimon.yoga_statica.R;
+
+public class Workout {
     private String name;
     private String descriptionList;
     private String description;
     private int imageResourceId;
 
-    
-    static final Workout[] workouts = {
+
+    public static final Workout[] workouts = {
             new Workout(SlimApp.context.getString(R.string.trikonasana_name),
                     SlimApp.context.getString(R.string.trikonasanaList),
                     SlimApp.context.getString(R.string.trikonasana),
@@ -64,17 +67,17 @@ class Workout {
         this.description = description;
         this.imageResourceId = imageResourceId;
     }
-    String getName() {
+    public String getName() {
         return name;
     }
-    String getDescriptionList(){
+    public String getDescriptionList(){
         return descriptionList;
     }
-    String getDescription() {
+    public String getDescription() {
         return description;
 
     }
-    int getImageResourceId() {
+    public int getImageResourceId() {
         return imageResourceId;
     }
 }

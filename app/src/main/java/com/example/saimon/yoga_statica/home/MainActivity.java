@@ -1,6 +1,7 @@
-package com.example.saimon.yoga_statica;
+package com.example.saimon.yoga_statica.home;
 
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +14,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.saimon.yoga_statica.R;
+import com.example.saimon.yoga_statica.view.AsanaFragment;
+import com.example.saimon.yoga_statica.view.ListFragment;
+
 import java.util.Locale;
 
 
@@ -22,21 +27,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int SECONDS_IN_MINUTE = 60;
     private static final int DELAY = 1000;
     private int seconds = 0;
-    TextView mTextField;
     TextView timer_Training, timer_Assana;
+    MediaPlayer mediaPlayer;
 
     public int time2 = 15000;
     FrameLayout container;
     private boolean running = true;
-    private String myString = "Hello";
     boolean isStarted = false;
-    boolean isCanseled = true;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // ButterKnife.bind(this);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, AsanaFragment.newInstance())
@@ -49,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initViews() {
         container = findViewById(R.id.fragmentContainer);
-
-
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beeps);
 
     }
 
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void initDetailFragment(int position) {
+    public void initDetailFragment(int position) {
         AsanaFragment detailFragment = new AsanaFragment();
         detailFragment.setWorkout(position);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -151,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         + ":" + String.format("%02d", seconds));
             }
             public void onFinish() {
+                mediaPlayer.start();
                 cTimer.cancel();
                 timer_Assana.setText("Out");
             }
@@ -174,5 +178,8 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, DELAY);
             }
         });
-    }}
+    }
+    }
+
+
 }

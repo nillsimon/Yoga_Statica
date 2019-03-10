@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica;
+package com.example.saimon.yoga_statica.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.saimon.yoga_statica.R;
+import com.example.saimon.yoga_statica.presenter.Workout;
 
 
 public class AsanaFragment extends Fragment {
@@ -45,7 +48,7 @@ public class AsanaFragment extends Fragment {
         imageResourceId = view.findViewById(R.id.imageWorkout);
     }
 
-    private void setFields() {
+    public void setFields() {
         Workout workout = Workout.workouts[workoutId];
         title.setText(workout.getName());
         description.setText(workout.getDescription());

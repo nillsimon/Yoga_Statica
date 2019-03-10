@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica;
+package com.example.saimon.yoga_statica.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.saimon.yoga_statica.home.MainActivity;
+import com.example.saimon.yoga_statica.R;
+import com.example.saimon.yoga_statica.presenter.Workout;
 
 public class ListFragment extends Fragment {
     private int workoutId;

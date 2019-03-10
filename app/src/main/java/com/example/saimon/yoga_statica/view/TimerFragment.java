@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica;
+package com.example.saimon.yoga_statica.view;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.saimon.yoga_statica.home.MainActivity;
+import com.example.saimon.yoga_statica.R;
 
 public class TimerFragment extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
