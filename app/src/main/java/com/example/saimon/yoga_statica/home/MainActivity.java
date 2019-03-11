@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initViews() {
         container = findViewById(R.id.fragmentContainer);
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beeps);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beeps_s);
 
     }
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 mediaPlayer.start();
                 cTimer.cancel();
-                timer_Assana.setText("Out");
+                timer_Assana.setText("Bravo");
             }
         }.start();
     }

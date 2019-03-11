@@ -4,17 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <include
-        android:id="@+id/include_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/timer_layout_title"/>
     <include
         android:id="@+id/include"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/include_title"
         layout="@layout/timer_layout"/>
 
 
