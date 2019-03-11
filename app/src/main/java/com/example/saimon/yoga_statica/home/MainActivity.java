@@ -11,12 +11,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.saimon.yoga_statica.R;
 import com.example.saimon.yoga_statica.view.AsanaFragment;
 import com.example.saimon.yoga_statica.view.ListFragment;
+import com.example.saimon.yoga_statica.view.SettingsFragment;
 
 import java.util.Locale;
 
@@ -40,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // ButterKnife.bind(this);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        // ButterKnife.bind(this);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, AsanaFragment.newInstance())
@@ -105,24 +109,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.time_30:
-                time2 = 30000;
-                return true;
-            case R.id.time_45:
-                time2 = 45000;
-                return true;
-            case R.id.time_90:
-                time2 = 90000;
-                return true;
-                case R.id.home:
-                    NavUtils.navigateUpFromSameTask(this);
-                    return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
+        int id = item.getItemId();
+        // When the home button is pressed, take the user back to the VisualizerActivity
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
         }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onClickStart(View v) {
