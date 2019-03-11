@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     TextView timer_Training, timer_Assana;
     MediaPlayer mediaPlayer;
 
-    public int time2 = 15000;
+    public int time2 = 30000;
     FrameLayout container;
     private boolean running = true;
     boolean isStarted = false;
