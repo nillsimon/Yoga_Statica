@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.saimon.yoga_statica.R;
 import com.example.saimon.yoga_statica.view.AsanaFragment;
@@ -28,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
     private static final int SECONDS_IN_MINUTE = 60;
     private static final int DELAY = 1000;
     private int seconds = 0;
-    TextView timer_Training, timer_Assana;
+    TextView timer_Training;
+    TextView timer_Asana;
     MediaPlayer mediaPlayer;
 
     public int time2 = 30000;
     FrameLayout container;
     private boolean running = true;
     boolean isStarted = false;
+    boolean isReversStarted = false;
+    boolean isChecked = false;
 
 
     @Override
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initViews() {
         container = findViewById(R.id.fragmentContainer);
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beeps_s);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beeps_m);
 
     }
 
@@ -111,12 +115,18 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.time_30:
                 time2 = 30000;
+                Toast.makeText(this, "Время асаны 30 секунд", Toast.LENGTH_SHORT).show();
+
                 return true;
             case R.id.time_45:
                 time2 = 45000;
+                Toast.makeText(this, "Время асаны 45 секунд", Toast.LENGTH_SHORT).show();
+
                 return true;
             case R.id.time_90:
                 time2 = 90000;
+                Toast.makeText(this, "Время асаны 90 секунд", Toast.LENGTH_SHORT).show();
+
                 return true;
                 case R.id.home:
                     NavUtils.navigateUpFromSameTask(this);
@@ -132,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         megaTimer();
         startTimer();
         reverseTimer();
-        timer_Assana = findViewById(R.id.timerAsana);
+        timer_Asana = findViewById(R.id.timerAsana);
         timer_Training = findViewById(R.id.timerTraining);
 
     }
@@ -147,20 +157,25 @@ public class MainActivity extends AppCompatActivity {
         cTimer.start();
     }
     public void reverseTimer() {
-        new CountDownTimer(time2, 1000) {
-            public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
-                int minutes = seconds / 60;
-                seconds = seconds % 60;
-                timer_Assana.setText("" + String.format("%02d", minutes)
-                        + ":" + String.format("%02d", seconds));
-            }
-            public void onFinish() {
-                mediaPlayer.start();
-                cTimer.cancel();
-                timer_Assana.setText("Bravo");
-            }
-        }.start();
+        if (!isReversStarted){
+            new CountDownTimer(time2, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    int seconds = (int) (millisUntilFinished / 1000);
+                    int minutes = seconds / 60;
+                    seconds = seconds % 60;
+                    timer_Asana.setText("" + String.format("%02d", minutes)
+                            + ":" + String.format("%02d", seconds));
+                    isReversStarted = true;
+                }
+
+                public void onFinish() {
+                    mediaPlayer.start();
+                    cTimer.cancel();
+                    timer_Asana.setText("Bravo!");
+                    isReversStarted = false;
+                }
+            }.start();
+        }
     }
     private void megaTimer() {
         if(isStarted == false){
@@ -180,8 +195,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, DELAY);
             }
         });
-    }
-    }
 
-
+         }
+    }
 }

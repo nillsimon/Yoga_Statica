@@ -332,4 +332,7 @@
     <string name="time_general">Время тренировки</string>
     <string name="time_yoga">Время асаны</string>
     <string name="action_settings">Настройки</string>
+    <string name="_00_00">00:00</string>
+    <string name="_0_00_00">0:00:00</string>
+    <string name="time_training">Время тренировки</string>
 </resources>

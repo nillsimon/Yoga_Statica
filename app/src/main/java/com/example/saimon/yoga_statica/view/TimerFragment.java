@@ -2,6 +2,7 @@ package com.example.saimon.yoga_statica.view;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.saimon.yoga_statica.home.MainActivity;
 import com.example.saimon.yoga_statica.R;
+
+import java.util.Locale;
 
 public class TimerFragment extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -25,6 +28,9 @@ public class TimerFragment extends Fragment {
     private int seconds = 0;
     private boolean running = true;
     int time2 = 60000;
+    int time;
+
+    boolean isStarted = false;
 
 
     @Nullable
@@ -52,5 +58,9 @@ public class TimerFragment extends Fragment {
     private void initViews(View view) {
         timer_Training = view.findViewById(R.id.timerTraining);
         timer_Asana = view.findViewById(R.id.timerAsana);
+
     }
+
+
+
 }

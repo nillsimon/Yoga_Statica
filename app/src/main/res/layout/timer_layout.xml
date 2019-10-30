@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
 <LinearLayout
+    android:layout_marginLeft="@dimen/margin_l"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -13,18 +14,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Время тренировки"
+        android:text="@string/time_training"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/size_text_s"/>
     <TextView
         android:layout_marginLeft="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Время асаны"
+        android:text="@string/time_asana"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/size_text_s"/>
 </LinearLayout>
 <LinearLayout
+    android:layout_marginLeft="@dimen/margin_l"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -34,7 +36,7 @@
         android:id="@+id/timerTraining"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0:00:00"
+        android:text="@string/_0_00_00"
         android:textSize="@dimen/size_text_l"/>
 
     <TextView
@@ -43,17 +45,19 @@
         android:paddingLeft="40dp"
         android:layout_gravity="right"
         android:textSize="@dimen/size_text_l"
-        android:text="00:00"
+        android:text="@string/_00_00"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"/>
     </LinearLayout>
-<Button
-    style="@style/PurpleButton"
-android:id="@+id/btn_fragment"
-android:layout_width="match_parent"
-android:layout_height="70dp"
-android:onClick="onClickStart"
-android:text="@string/start"
-tools:ignore="OnClick"/>
+
+    <Button style="@style/PurpleButton"
+        android:id="@+id/btn_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:onClick="onClickStart"
+        android:text="@string/start"
+        android:textSize="@dimen/size_text_m"
+        tools:ignore="OnClick"/>
+
 
 </LinearLayout>

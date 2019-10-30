@@ -7,7 +7,7 @@
     <dimen name="margin_sx">4dp</dimen>
     <dimen name="margin_s">8dp</dimen>
     <dimen name="margin_m">16dp</dimen>
-    <dimen name="margin_l">24dp</dimen>
+    <dimen name="margin_l">20dp</dimen>
 
     <dimen name="size_text_sx">12sp</dimen>
     <dimen name="size_text_s">16sp</dimen>
