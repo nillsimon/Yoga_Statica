@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica;
+package com.simon.yoga_statica;
 
 import org.junit.Test;
 

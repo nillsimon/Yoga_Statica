@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
 <LinearLayout
+    android:layout_marginLeft="@dimen/margin_l"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -25,6 +26,7 @@
         android:textSize="@dimen/size_text_s"/>
 </LinearLayout>
 <LinearLayout
+    android:layout_marginLeft="@dimen/margin_l"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -54,6 +56,7 @@ android:layout_width="match_parent"
 android:layout_height="70dp"
 android:onClick="onClickStart"
 android:text="@string/start"
+    android:textSize="@dimen/margin_m"
 tools:ignore="OnClick"/>
 
 </LinearLayout>

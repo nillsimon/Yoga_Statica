@@ -1,19 +1,19 @@
-package com.example.saimon.yoga_statica.view;
+package com.simon.yoga_statica.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.saimon.yoga_statica.home.MainActivity;
+import com.simon.yoga_statica.home.MainActivity;
 import com.example.saimon.yoga_statica.R;
-import com.example.saimon.yoga_statica.presenter.Workout;
+import com.simon.yoga_statica.presenter.Workout;
 
 public class ListFragment extends Fragment {
     private int workoutId;

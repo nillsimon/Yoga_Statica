@@ -1,4 +1,4 @@
-package com.example.saimon.yoga_statica.presenter;
+package com.simon.yoga_statica.presenter;
 
 import com.example.saimon.yoga_statica.R;
 

@@ -1,11 +1,9 @@
-package com.example.saimon.yoga_statica.view;
+package com.simon.yoga_statica.view;
 
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.example.saimon.yoga_statica.R;
-
-import java.util.prefs.Preferences;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
