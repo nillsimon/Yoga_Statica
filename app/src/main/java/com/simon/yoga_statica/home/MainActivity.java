@@ -126,9 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"Время асаны 90 секунд", Toast.LENGTH_LONG).show();
                 return true;
 
-                case R.id.home:
-                    NavUtils.navigateUpFromSameTask(this);
-                    return true;
             default:
                 return super.onOptionsItemSelected(item);
 
